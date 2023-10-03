@@ -1,0 +1,5 @@
+GET {{host}}/v1/queries/struct/650da1e79c7663251bd4add8
+
+###
+
+GET {{host}}/v1/queries/data/650ecef68aa60c6d9118e238/page/1

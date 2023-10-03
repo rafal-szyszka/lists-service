@@ -1,0 +1,8 @@
+POST {{host}}/v1/commands
+Content-Type: application/json
+
+{
+  "name": "Testowa Lista",
+  "formId": "650d967c303b0a0bbdc0cb29",
+  "pageSize": 20
+}

@@ -1,8 +1,8 @@
 services:
   locations:
     data-service:
-      host: ${DATA_SERVICE_HOST}
+      host: ${DATA_SERVICE_HOST}:${DATA_SERVICE_PORT}
       query-endpoint: "v1/queries/paginated"
     forms-service:
-      host: ${FORMS_SERVICE_HOST}
+      host: ${FORMS_SERVICE_HOST}:${FORMS_SERVICE_PORT}
       structure-endpoint: "v1/queries/{id}"

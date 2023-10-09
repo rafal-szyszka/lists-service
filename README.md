@@ -271,7 +271,7 @@ Content-Type: application/json
 <code>GET</code> <code>/v1/queries/data/{id}/page/{pageNo}</code> <code>Pobranie danych listy ze strony</code>
 </summary>
 
-#### Struktura listy
+#### Listing danych
 Zasób pozwala dane listy z wybranej strony
 
 #### Parametry
@@ -359,6 +359,221 @@ różnią się jedynie wartości poszczególnych kolumn.
         "timeConsumed": 1.0
       },
       "Evaluation": null
+    }
+  ]
+}
+```
+</details>
+</details>
+
+<details>
+<summary>
+<code>POST</code> <code>/v1/commands</code> <code>Utworzenie listy danych</code>
+</summary>
+
+#### Utworzenie listy danych
+Zasób pozwala utworzyć listę danych na podstawie istniejącego formularza. Pozwala nadać liście nazwę
+oraz sprecyzować domyślny rozmiar strony
+
+#### Parametry
+- brak
+
+#### Body
+```json
+{
+  "name": "Testowa Lista",
+  "formId": "650d967c303b0a0bbdc0cb29",
+  "pageSize": 20
+}
+```
+- `name` - Nazwa listy, dowolna wartość tekstowa
+- `formId` - id formularza z serwisu formularzy
+- `pageSize` - domyślny rozmiar strony
+
+#### Content-Type
+```application/json```
+
+#### Przykładowe wywołanie
+```http request
+POST http://{{host}}/v1/commands
+Content-Type: application/json
+
+{
+  "name": "Testowa Lista",
+  "formId": "650d967c303b0a0bbdc0cb29",
+  "pageSize": 20
+}
+```
+
+<details>
+<summary><b>Przykładowa odpowiedź</b></summary>
+
+```json
+{
+  "id": "651d70477624eb47cbc0049b",
+  "name": "Testowa Lista",
+  "columns": [
+    {
+      "techName": "64ff1717f76c5822c3bb5a63",
+      "label": "ID",
+      "options": {
+        "visible": true,
+        "sumPageValues": false,
+        "sumAllValues": false
+      }
+    },
+    {
+      "techName": "64ff1718f76c5822c3bb5a64",
+      "label": "Name",
+      "options": {
+        "visible": true,
+        "sumPageValues": false,
+        "sumAllValues": false
+      }
+    },
+    {
+      "techName": "64ff1718f76c5822c3bb5a65",
+      "label": "Description",
+      "options": {
+        "visible": true,
+        "sumPageValues": false,
+        "sumAllValues": false
+      }
+    },
+    {
+      "techName": "64ff1718f76c5822c3bb5a66",
+      "label": "Answer",
+      "options": {
+        "visible": true,
+        "sumPageValues": false,
+        "sumAllValues": false
+      }
+    },
+    {
+      "techName": "64ff1718f76c5822c3bb5a67",
+      "label": "Created at",
+      "options": {
+        "visible": true,
+        "sumPageValues": false,
+        "sumAllValues": false
+      }
+    },
+    {
+      "techName": "64ff1718f76c5822c3bb5a68",
+      "label": "Due Date",
+      "options": {
+        "visible": true,
+        "sumPageValues": false,
+        "sumAllValues": false
+      }
+    },
+    {
+      "techName": "64ff1718f76c5822c3bb5a69",
+      "label": "Deadline",
+      "options": {
+        "visible": true,
+        "sumPageValues": false,
+        "sumAllValues": false
+      }
+    },
+    {
+      "techName": "64ff1718f76c5822c3bb5a6a",
+      "label": "Sprint",
+      "options": {
+        "visible": true,
+        "sumPageValues": false,
+        "sumAllValues": false
+      }
+    },
+    {
+      "techName": "64ff1718f76c5822c3bb5a6b",
+      "label": "Status",
+      "options": {
+        "visible": true,
+        "sumPageValues": false,
+        "sumAllValues": false
+      }
+    },
+    {
+      "techName": "64ff1718f76c5822c3bb5a6c",
+      "label": "Type",
+      "options": {
+        "visible": true,
+        "sumPageValues": false,
+        "sumAllValues": false
+      }
+    },
+    {
+      "techName": "64ff1718f76c5822c3bb5a6d",
+      "label": "Urgency",
+      "options": {
+        "visible": true,
+        "sumPageValues": false,
+        "sumAllValues": false
+      }
+    },
+    {
+      "techName": "64ff1718f76c5822c3bb5a6e",
+      "label": "Priority",
+      "options": {
+        "visible": true,
+        "sumPageValues": false,
+        "sumAllValues": false
+      }
+    },
+    {
+      "techName": "64ff1718f76c5822c3bb5a6f",
+      "label": "Extended Description",
+      "options": {
+        "visible": true,
+        "sumPageValues": false,
+        "sumAllValues": false
+      }
+    },
+    {
+      "techName": "64ff1718f76c5822c3bb5a70",
+      "label": "Orderer",
+      "options": {
+        "visible": true,
+        "sumPageValues": false,
+        "sumAllValues": false
+      }
+    },
+    {
+      "techName": "64ff1718f76c5822c3bb5a71",
+      "label": "Performer",
+      "options": {
+        "visible": true,
+        "sumPageValues": false,
+        "sumAllValues": false
+      }
+    },
+    {
+      "techName": "64ff1718f76c5822c3bb5a72",
+      "label": "Project",
+      "options": {
+        "visible": true,
+        "sumPageValues": false,
+        "sumAllValues": false
+      }
+    },
+    {
+      "techName": "64ff1718f76c5822c3bb5a73",
+      "label": "Metrics",
+      "options": {
+        "visible": true,
+        "sumPageValues": false,
+        "sumAllValues": false
+      }
+    },
+    {
+      "techName": "64ff1718f76c5822c3bb5a74",
+      "label": "Evaluation",
+      "options": {
+        "visible": true,
+        "sumPageValues": false,
+        "sumAllValues": false
+      }
     }
   ]
 }

@@ -25,7 +25,7 @@ class CommandsService(
                 Column(
                     techName = it.id!!,
                     label = it.label!!,
-                    property = it.property!!,
+                    property = it.persistenceData!!.name!!,
                     options = Options(visible = true, sumPageValues = false, sumAllValues = false),
                 )
             },

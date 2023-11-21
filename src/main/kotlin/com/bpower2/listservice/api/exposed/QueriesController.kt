@@ -4,10 +4,7 @@ import com.bpower2.listservice.api.queries.QueriesService
 import com.bpower2.listservice.api.queries.data.ListWithData
 import com.bpower2.listservice.core.data.models.SimpleList
 import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 import java.util.*
 
 @RestController
@@ -27,13 +24,16 @@ class QueriesController(
     }
 
     @GetMapping(value = ["/data/{id}", "/data/{id}/page/{page}"])
-    fun getListWithData(@PathVariable id: String, @PathVariable page: Optional<Int>): ResponseEntity<ListWithData> {
-        val optionalList = queriesService.getListWithData(id, page)
+    fun getListWithData(
+        @PathVariable id: String,
+        @PathVariable page: Optional<Int>,
+        @RequestParam parameters: Optional<Map<String, Any>>
+    ): ResponseEntity<ListWithData> {
+        val optionalList = queriesService.getListWithData(id, page, parameters)
         return if (optionalList.isPresent) {
             ResponseEntity.ok(optionalList.get())
         } else {
             ResponseEntity.notFound().build()
         }
     }
-
 }

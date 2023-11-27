@@ -22,7 +22,11 @@ class QueriesService(
         return listRepository.findById(id)
     }
 
-    fun getListWithData(id: String, page: Optional<Int>, filter: Optional<Map<String, Any>>): Optional<ListWithData> {
+    fun getListWithData(
+        id: String,
+        page: Optional<Int>,
+        filter: Optional<HashMap<String, Any>>
+    ): Optional<ListWithData> {
         val list = listRepository.findById(id)
         if (list.isEmpty) return Optional.empty()
         var query = list.get().query!!
@@ -41,7 +45,7 @@ class QueriesService(
     }
 
     private fun filterList(
-        filter: Optional<Map<String, Any>>,
+        filter: Optional<HashMap<String, Any>>,
         formStructure: FormDefinition,
         query: ProQLQuery
     ) {

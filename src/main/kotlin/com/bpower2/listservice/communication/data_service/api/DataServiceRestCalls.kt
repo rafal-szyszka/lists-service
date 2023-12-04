@@ -1,7 +1,6 @@
 package com.bpower2.listservice.communication.data_service.api
 
 import com.bpower2.listservice.communication.data_service.api.config.DataServiceRestConfiguration
-import com.bpower2.listservice.communication.data_service.api.data.PaginatedQueryResult
 import com.bpower2.listservice.proql.ProQLQuery
 import com.fasterxml.jackson.databind.DeserializationFeature
 import io.ktor.client.*
@@ -23,15 +22,15 @@ class DataServiceRestCalls(
 
     private var httpClient: HttpClient = createClient()
 
-    fun getData(query: ProQLQuery): PaginatedQueryResult = runBlocking{
+    fun getData(query: ProQLQuery): List<Map<String, Any>> = runBlocking {
         return@runBlocking httpClient.post(config.host) {
             url {
-                appendPathSegments(config.getDataPaginatedEndpoint)
+                appendPathSegments(config.getDataEndpoint)
             }
             setBody(query)
             contentType(ContentType.Application.Json)
             accept(ContentType.Application.Json)
-        }.body<PaginatedQueryResult>()
+        }.body<List<Map<String, Any>>>()
 
     }
 

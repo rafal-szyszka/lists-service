@@ -3,6 +3,7 @@ package com.bpower2.listservice.api.queries.data
 import com.bpower2.listservice.communication.data_service.api.data.PaginatedQueryResult
 import com.bpower2.listservice.core.data.models.Column
 import com.bpower2.listservice.core.data.models.SimpleList
+import java.util.*
 
 data class ListWithData(
     var meta: ListMetadata,
@@ -19,7 +20,7 @@ data class ListWithData(
                     totalPages = data.totalPages,
                     numberOfElements = data.numberOfElements,
                     pageSize = data.pageSize,
-                    pageNumber = data.pageNumber + 1,
+                    pageNumber = data.pageNumber,
                 ),
                 data = mapContent(data.content, list.columns!!),
                 columns = list.columns!!
@@ -47,5 +48,5 @@ data class ListMetadata(
     var totalPages: Int,
     var numberOfElements: Int,
     var pageSize: Int,
-    var pageNumber: Int,
+    var pageNumber: Optional<Int>,
 ) {}

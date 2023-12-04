@@ -27,7 +27,7 @@ class QueriesController(
     fun getListWithData(
         @PathVariable id: String,
         @PathVariable page: Optional<Int>,
-        @RequestParam parameters: Optional<HashMap<String, Any>>
+        @RequestParam(required = false) parameters: Map<String, Any>
     ): ResponseEntity<ListWithData> {
         val optionalList = queriesService.getListWithData(id, page, parameters)
         return if (optionalList.isPresent) {

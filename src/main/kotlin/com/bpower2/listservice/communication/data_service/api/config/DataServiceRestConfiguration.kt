@@ -10,6 +10,9 @@ class DataServiceRestConfiguration {
     lateinit var host: String
 
     @Value("\${services.locations.data-service.query-endpoint}")
-    lateinit var getDataPaginatedEndpoint: String
+    lateinit var getDataEndpoint: String
+
+    @Value("\${services.locations.data-service.ttl}")
+    lateinit var getTtlForRedis: String
 
 }
